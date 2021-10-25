@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note Pad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+      <h1>Note Pad</h1>
+  </div>
+  <textarea id="textPage">Type text here...</textarea>
+    <script>
+      var inputField  = document.getElementById('textPage');
+      document.getElementById("textPage").innerHTML = localStorage.getItem("textBoxContent");;
+      var textBox = [] // Stores user input into an empty array
+      var textBoxContent;
+
+        
+        setInterval(function() {
+            textBox.pop(textBox[0]);
+            textBox.push(inputField.value);
+            textBoxContent = textBox[0];
+            localStorage.setItem('textBoxContent', textBoxContent);
+        }, 1000);
+  </script>
+</body>
+</html>
